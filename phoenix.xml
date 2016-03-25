@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE tsung SYSTEM "/usr/local/share/tsung/tsung-1.0.dtd" [] >
+<tsung loglevel="debug">
+  <clients>
+    <client host="localhost" use_controller_vm="true" maxusers="64000" />
+  </clients>
+
+  <servers>
+    <server host="127.0.0.1" port="4000" type="tcp" />
+  </servers>
+
+  <load>
+    <arrivalphase phase="1" duration="100" unit="second">
+      <users maxnumber="10000" arrivalrate="100" unit="second" />
+    </arrivalphase>
+  </load>
+
+  <options>
+    <option name="ports_range" min="1025" max="65535"/>
+  </options>
+
+  <sessions>
+    <session name="websocket" probability="100" type="ts_websocket">
+      <request>
+        <websocket type="connect" path="/socket/websocket"></websocket>
+      </request>
+
+      <request>
+        <websocket type="message">{"topic":"rooms:lobby", "event":"phx_join", "payload": {}, "ref":"1"}</websocket>
+      </request>
+
+      <for var="i" from="1" to="1000" incr="1">
+        <thinktime value="5"/>
+        <request>
+          <websocket type="message">{"topic":"rooms:lobby","event":"new:msg","payload":{"body":"hello world"},"ref":"2"}</websocket>
+        </request>
+      </for>
+    </session>
+  </sessions>
+</tsung>
