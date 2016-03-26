@@ -4,10 +4,18 @@ require 'net/ssh'
 
 def num_cpu(type)
 	case type
-	when "t2.micro"
-		1
-	else
+	when "t2.medium", "t2.large", "m4.large", "m3.large"
 		2
+	when "m4.xlarge", "m3.xlarge"
+		4
+	when "m4.2xlarge", "m3.2xlarge"
+		8
+	when "m4.4xlarge"
+		16
+	when "m4.10xlarge"
+		40
+	else
+		1
 	end
 end
 
