@@ -19,21 +19,18 @@ def num_cpu(type)
 	end
 end
 
-puts "1. Collecting server information from EC2..."
-puts ""
+print "1. Collecting server information from EC2... "
 instances = {}
 for line in `ec2-describe-instances`.split("\n").collect{ |x| x.strip.split("\t") }
 	case line.first
 	when "INSTANCE"
-		instances[line[1]] = {:name => "", :type => line[9], :dns => line[3], :public_ip => line[16], :private_ip => line[17]}
+		instances[line[1]] = {:name => "", :type => line[9], :dns => line[3], :public_ip => line[16], :private_ip => line[17], :state => line[5]} if line[5] != "terminated"
 	when "TAG"
-		if instances[line[2]].nil?
-			puts "Unknown instance id: #{line[2]}"
-			exit!
-		end
-		instances[line[2]][:name] = line[4] if line[3] == "Name"
+		instances[line[2]][:name] = line[4] if line[3] == "Name" and instances.include? line[2]
 	end
 end
+puts "#{instances.length} instances found!"
+puts ""
 
 # Group instances
 server = instances.values.find{ |x| x[:name] == "server" }
@@ -83,7 +80,7 @@ puts ""
 puts "====================================== SUMMARY ======================================"
 puts ""
 for x in all_hosts
-	printf "%-15s %-12s %-16s %s\n", x[:alias], x[:type], x[:private_ip], x[:public_ip]
+	printf "%-15s %-12s %-16s %-16s %s\n", x[:alias], x[:type], x[:private_ip], x[:public_ip], x[:state]
 end
 puts "\n"
 

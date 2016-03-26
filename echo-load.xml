@@ -2,17 +2,22 @@
 <!DOCTYPE tsung SYSTEM "/usr/local/share/tsung/tsung-1.0.dtd" [] >
 <tsung loglevel="warning">
   <clients>
-    <client host="tsung0" cpu="1" use_controller_vm="false" maxusers="64000" />
-    <client host="tsung1" cpu="1" use_controller_vm="false" maxusers="64000" />
+    <client host="tsung0" cpu="2" use_controller_vm="false" maxusers="64000" />
+    <client host="tsung1" cpu="2" use_controller_vm="false" maxusers="64000" />
+    <client host="tsung2" cpu="2" use_controller_vm="false" maxusers="64000" />
+    <client host="tsung3" cpu="2" use_controller_vm="false" maxusers="64000" />
+    <client host="tsung4" cpu="2" use_controller_vm="false" maxusers="64000" />
+    <client host="tsung5" cpu="2" use_controller_vm="false" maxusers="64000" />
+    <client host="tsung6" cpu="2" use_controller_vm="false" maxusers="64000" />
   </clients>
 
   <servers>
-    <server host="tsung-server" port="4000" type="tcp" />
+    <server host="server" port="4000" type="tcp" />
   </servers>
 
   <load>
     <arrivalphase phase="1" duration="5" unit="minute">
-      <users maxnumber="10000" arrivalrate="1000" unit="second" />
+      <users maxnumber="210000" arrivalrate="2000" unit="second" />
     </arrivalphase>
   </load>
 
