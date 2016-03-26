@@ -88,7 +88,7 @@ puts "=================================== .tsung config ========================
 puts ""
 puts "  <clients>"
 for x in [controller] + clients
-	puts %Q{    <client host="#{x[:alias]}" cpu="#{num_cpu(x[:type])}" use_controller_vm="false" maxusers="64000" />}
+	puts %Q{    <client host="#{x[:alias]}" cpu="#{num_cpu(x[:type])}" use_controller_vm="false" maxusers="50000" />}
 end
 puts "  </clients>"
 puts "\n"
