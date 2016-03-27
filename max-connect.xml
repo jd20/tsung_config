@@ -22,6 +22,26 @@
     <client host="tsung17" cpu="2" use_controller_vm="false" maxusers="50000" />
     <client host="tsung18" cpu="2" use_controller_vm="false" maxusers="50000" />
     <client host="tsung19" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung20" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung21" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung22" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung23" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung24" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung25" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung26" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung27" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung28" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung29" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung30" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung31" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung32" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung33" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung34" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung35" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung36" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung37" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung38" cpu="2" use_controller_vm="false" maxusers="50000" />
+    <client host="tsung39" cpu="2" use_controller_vm="false" maxusers="50000" />
   </clients>
 
   <servers>
@@ -30,7 +50,7 @@
 
   <load>
     <arrivalphase phase="1" duration="15" unit="minute">
-      <users maxnumber="1000000" arrivalrate="5000" unit="second" />
+      <users maxnumber="2000000" arrivalrate="5000" unit="second" />
     </arrivalphase>
   </load>
 
