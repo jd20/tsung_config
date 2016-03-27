@@ -50,7 +50,7 @@
 
   <load>
     <arrivalphase phase="1" duration="15" unit="minute">
-      <users maxnumber="2000000" arrivalrate="5000" unit="second" />
+      <users maxnumber="1000000" arrivalrate="5000" unit="second" />
     </arrivalphase>
   </load>
 
@@ -67,10 +67,9 @@
       <request>
         <websocket type="message">{"topic":"rooms:lobby", "event":"phx_join", "payload": {}, "ref":"1"}</websocket>
       </request>
-      <thinktime value="450"/>
 
       <for var="i" from="1" to="1000" incr="1">
-        <thinktime value="10"/>
+        <thinktime min="5" max="55" random="true" />
         <request>
           <websocket type="message">{"topic":"rooms:lobby","event":"new:msg","payload":{"body":"hello world"},"ref":"2"}</websocket>
         </request>
