@@ -29,7 +29,7 @@
   </servers>
 
   <load>
-    <arrivalphase phase="1" duration="15" unit="minute">
+    <arrivalphase phase="1" duration="1" unit="hour">
       <users maxnumber="1000000" arrivalrate="2000" unit="second" />
     </arrivalphase>
   </load>
@@ -49,7 +49,7 @@
       </request>
 
       <for var="i" from="1" to="1000" incr="1">
-        <thinktime value="30"/>
+        <thinktime value="30" random="false" />
       </for>
     </session>
   </sessions>
